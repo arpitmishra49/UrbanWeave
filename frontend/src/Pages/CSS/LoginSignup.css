@@ -1,0 +1,379 @@
+/* Modern Login/Signup Page */
+.loginsignup {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-8) var(--space-4);
+  position: relative;
+  overflow: hidden;
+}
+
+.loginsignup::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+  z-index: 1;
+}
+
+.loginsignup-container {
+  width: 100%;
+  max-width: 500px;
+  background: var(--bg-primary);
+  border-radius: var(--radius-2xl);
+  padding: var(--space-12);
+  box-shadow: var(--shadow-xl);
+  position: relative;
+  z-index: 2;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.loginsignup-container h1 {
+  color: var(--text-primary);
+  font-size: var(--font-size-3xl);
+  font-weight: var(--font-weight-bold);
+  text-align: center;
+  margin: 0 0 var(--space-8) 0;
+  position: relative;
+}
+
+.loginsignup-container h1::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+  border-radius: var(--radius-full);
+}
+
+.loginsignup-subtitle {
+  color: var(--text-secondary);
+  font-size: var(--font-size-base);
+  text-align: center;
+  margin-bottom: var(--space-8);
+  line-height: 1.6;
+}
+
+/* Form Fields */
+.loginsignup-fields {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+  margin-bottom: var(--space-8);
+}
+
+.loginsignup-field {
+  position: relative;
+}
+
+.loginsignup-fields input {
+  width: 100%;
+  height: 56px;
+  padding: var(--space-4) var(--space-5);
+  border: 2px solid var(--gray-200);
+  border-radius: var(--radius-lg);
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
+  transition: all var(--transition-fast);
+  outline: none;
+}
+
+.loginsignup-fields input:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+  transform: translateY(-1px);
+}
+
+.loginsignup-fields input::placeholder {
+  color: var(--text-tertiary);
+  font-weight: var(--font-weight-normal);
+}
+
+.loginsignup-fields input:invalid {
+  border-color: var(--error-color);
+}
+
+.loginsignup-fields input:valid {
+  border-color: var(--success-color);
+}
+
+/* Input Labels */
+.loginsignup-field label {
+  position: absolute;
+  top: -8px;
+  left: var(--space-3);
+  background: var(--bg-primary);
+  padding: 0 var(--space-2);
+  color: var(--text-secondary);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  z-index: 1;
+}
+
+/* Password Toggle */
+.loginsignup-password-toggle {
+  position: absolute;
+  right: var(--space-4);
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: var(--text-tertiary);
+  cursor: pointer;
+  padding: var(--space-1);
+  border-radius: var(--radius-sm);
+  transition: color var(--transition-fast);
+}
+
+.loginsignup-password-toggle:hover {
+  color: var(--primary-color);
+}
+
+/* Submit Button */
+.loginsignup-container button {
+  width: 100%;
+  height: 56px;
+  background: linear-gradient(135deg, var(--primary-color), var(--primary-hover));
+  color: var(--text-inverse);
+  border: none;
+  border-radius: var(--radius-lg);
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: var(--space-6);
+  box-shadow: var(--shadow-md);
+}
+
+.loginsignup-container button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left var(--transition-normal);
+}
+
+.loginsignup-container button:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.loginsignup-container button:hover::before {
+  left: 100%;
+}
+
+.loginsignup-container button:active {
+  transform: translateY(0);
+}
+
+.loginsignup-container button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Login Link */
+.loginsignup-login {
+  text-align: center;
+  color: var(--text-secondary);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
+  margin-bottom: var(--space-4);
+}
+
+.loginsignup-login span {
+  color: var(--primary-color);
+  font-weight: var(--font-weight-semibold);
+  cursor: pointer;
+  text-decoration: underline;
+  transition: color var(--transition-fast);
+}
+
+.loginsignup-login span:hover {
+  color: var(--primary-hover);
+}
+
+/* Agreement Checkbox */
+.loginsignup-agree {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  color: var(--text-secondary);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.5;
+  margin-bottom: var(--space-6);
+}
+
+.loginsignup-agree input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--primary-color);
+  cursor: pointer;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.loginsignup-agree label {
+  cursor: pointer;
+  user-select: none;
+}
+
+/* Divider */
+.loginsignup-divider {
+  display: flex;
+  align-items: center;
+  margin: var(--space-6) 0;
+  color: var(--text-tertiary);
+  font-size: var(--font-size-sm);
+}
+
+.loginsignup-divider::before,
+.loginsignup-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--gray-200);
+}
+
+.loginsignup-divider span {
+  padding: 0 var(--space-4);
+  background: var(--bg-primary);
+}
+
+/* Social Login */
+.loginsignup-social {
+  display: flex;
+  gap: var(--space-3);
+  margin-top: var(--space-6);
+}
+
+.loginsignup-social-btn {
+  flex: 1;
+  height: 48px;
+  border: 2px solid var(--gray-200);
+  border-radius: var(--radius-lg);
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+}
+
+.loginsignup-social-btn:hover {
+  border-color: var(--primary-color);
+  background: var(--gray-50);
+  transform: translateY(-1px);
+}
+
+/* Error Messages */
+.loginsignup-error {
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  color: var(--error-color);
+  padding: var(--space-3);
+  border-radius: var(--radius-lg);
+  font-size: var(--font-size-sm);
+  margin-bottom: var(--space-4);
+}
+
+/* Success Messages */
+.loginsignup-success {
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  color: var(--success-color);
+  padding: var(--space-3);
+  border-radius: var(--radius-lg);
+  font-size: var(--font-size-sm);
+  margin-bottom: var(--space-4);
+}
+
+/* Loading State */
+.loginsignup-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  color: var(--text-secondary);
+  font-size: var(--font-size-sm);
+}
+
+.loginsignup-loading::after {
+  content: '';
+  width: 16px;
+  height: 16px;
+  border: 2px solid var(--gray-300);
+  border-top: 2px solid var(--primary-color);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .loginsignup {
+    padding: var(--space-4) var(--space-3);
+  }
+  
+  .loginsignup-container {
+    padding: var(--space-8) var(--space-6);
+  }
+  
+  .loginsignup-container h1 {
+    font-size: var(--font-size-2xl);
+  }
+  
+  .loginsignup-fields input {
+    height: 48px;
+    font-size: var(--font-size-sm);
+  }
+  
+  .loginsignup-container button {
+    height: 48px;
+    font-size: var(--font-size-base);
+  }
+}
+
+@media (max-width: 480px) {
+  .loginsignup {
+    padding: var(--space-3) var(--space-2);
+  }
+  
+  .loginsignup-container {
+    padding: var(--space-6) var(--space-4);
+  }
+  
+  .loginsignup-container h1 {
+    font-size: var(--font-size-xl);
+  }
+  
+  .loginsignup-social {
+    flex-direction: column;
+  }
+  
+  .loginsignup-social-btn {
+    height: 44px;
+  }
+}
